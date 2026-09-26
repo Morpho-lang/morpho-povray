@@ -1,6 +1,6 @@
 # morpho-povray
 
-Morpho package that writes POV-Ray scene files from graphics and optionally renders them.
+[Morpho](https://github.com/Morpho-lang/morpho) package that writes POV-Ray scene files from graphics and optionally renders them.
 
 The module depends on the core `constants`, `graphics`, `color`, and `fonts` modules. `render` runs the `povray` executable, which must be on the path.
 
