@@ -21,14 +21,14 @@ pov = POVRaytracer(g, camera = camera)
 
 pov.render("centered.pov")
 
-pov.viewpoint = c + Matrix([-5,0,0])
+pov.camera.viewpoint = c + Matrix([-5,0,0])
 
 pov.render("centered_xview.pov")
 
-pov.viewpoint = c + Matrix([0,-5,0])
+pov.camera.viewpoint = c + Matrix([0,-5,0])
 
 pov.render("centered_yview.pov")
 
-pov.sky = Matrix([1,0,0])
+pov.camera.sky = Matrix([1,0,0])
 
 pov.render("centered_yview_fixed_rotated.pov")

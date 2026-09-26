@@ -39,16 +39,25 @@ attributes after instantiation:
 * `width` - image width (`2048` by default)
 * `height` - image height (`1536` by default)
 * `viewangle` - camera angle (higher means wider view) (`24` by default)
-* `viewpoint` - position of camera (`Matrix([0,0,-5])` by default)
-* `look_at` - coordinate to look at (`Matrix([0,0,0])` by defualt)
+* `viewpoint` - position of camera (`Matrix([0,0,5])` by default)
+* `look_at` - coordinate to look at (`Matrix([0,0,0])` by default)
 * `sky` - orientation pointing to the sky (`Matrix([0,1,0])` by default)
 
 The default settings generate a reasonable centered view of the x-y
 plane.
 
-These attributes can also be set directly for the `POVRaytracer` object:
+Pass a camera when creating the tracer:
 
-    pov.look_at = Matrix([0,0,1])
+    var camera = Camera(look_at=Matrix([0,0,1]))
+    var pov = POVRaytracer(graphic, camera=camera)
+
+The same attributes can be changed on the tracer's camera later:
+
+    pov.camera.look_at = Matrix([0,0,1])
+
+`light` selects the lamps. Leave it unset to use the graphic's lighting. A list of positions places equal white lights:
+
+    pov.camera.light = [Matrix([10,10,10]), Matrix([-10,-10,10])]
 
 The `render` method supports a few optional boolean arguments:
 
@@ -72,11 +81,12 @@ attributes after instantiation:
 * `width` - image width (`2048` by default)
 * `height` - image height (`1536` by default)
 * `viewangle` - camera angle (higher means wider view) (`24` by default)
-* `viewpoint` - position of camera (`Matrix([0,0,-5])` by default)
-* `look_at` - coordinate to look at (`Matrix([0,0,0])` by defualt)
+* `viewpoint` - position of camera (`Matrix([0,0,5])` by default)
+* `look_at` - coordinate to look at (`Matrix([0,0,0])` by default)
 * `sky` - orientation pointing to the sky (`Matrix([0,1,0])` by default)
 
     camera.sky = Matrix([0,0,1])
+    camera.light = [Matrix([10,10,10]), Matrix([-10,-10,10])]
 
 The default settings generate a reasonable centered view of the x-y
 plane.
