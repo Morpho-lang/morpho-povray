@@ -1,0 +1,6 @@
+.DS_Store
+test/**/*.out
+test/FailedTests.txt
+test/FailedTestsMultiThreaded.txt
+*.pov
+*.png
